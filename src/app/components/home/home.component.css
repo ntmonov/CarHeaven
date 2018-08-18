@@ -1,0 +1,8 @@
+a {
+  cursor: pointer;
+}
+
+.container {
+  background-image: url('../../../assets/home.jpg');
+  min-height: 720px
+}

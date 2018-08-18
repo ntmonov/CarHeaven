@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <form #form='ngForm' (ngSubmit)='register(form)' class='col-md-3 text-center'>
+      
+ 
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="username" name='username'
+        required
+        #username='ngModel'
+        [(ngModel)]='model.username'
+        pattern="^[A-Za-z\d]{4,12}$"
+        >
+        <div [hidden]='username.valid || username.pristine' class="alert alert-danger">Invalid username</div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" id="email" name='email'
+        required
+        #email='ngModel'
+        [(ngModel)]='model.email'
+        email
+        >
+        <div [hidden]='email.valid || email.pristine' class="alert alert-danger">Invalid email</div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name='password'
+        required
+        pattern="^[A-Za-z\d]{3,8}$"
+        #password='ngModel'
+        [(ngModel)]='model.password'
+        >
+        <div [hidden]='password.valid || password.pristine' class="alert alert-danger">Password must be between 3 and 8 symbols</div>
+      </div>
+
+      <div class="form-group">
+        <label for="repeatPass">Repeat password</label>
+        <input type="password" class="form-control" id="repeatPass" name="repeatPass" [(ngModel)]='model.repeatPass'
+        >
+        <div [hidden]='model.password == model.repeatPass' class="alert alert-danger">Password must match</div>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" name='name'
+        pattern='^[A-Z][a-z]+\s[A-Z][a-z]+$'
+        [(ngModel)]='model.name'
+        #name='ngModel'
+        required>
+        <div [hidden]='name.valid || name.pristine' class="alert alert-danger">Name is required</div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="text" class="form-control" id="phone" name='phone'
+        pattern='^\d{3,20}$'
+        [(ngModel)]='model.phone'
+        #phone='ngModel'
+        required>
+        <div [hidden]='phone.valid || phone.pristine' class="alert alert-danger">Phone is required</div>
+      </div>
+
+      
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <textarea class="form-control" id="address" rows="3" maxlength="75" name='address'
+        [(ngModel)]='model.address'
+        #address='ngModel'
+        ></textarea>
+      </div>
+
+      <button [disabled]='form.invalid' type="submit" class="btn btn-primary">Register</button>
+    </form>
+  </div>
+</div>

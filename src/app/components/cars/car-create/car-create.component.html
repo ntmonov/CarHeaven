@@ -1,0 +1,89 @@
+<form #f='ngForm' (ngSubmit)='create()'>
+    <div class="row">
+      <div class="col">
+        <label for='make'>Make</label>
+        <input type="text" class="form-control" id='make' placeholder="Make"
+         name="make"
+         required
+         pattern="^[A-Za-z]{3,16}$"
+         [(ngModel)]='car.make'
+         #make='ngModel'
+         >
+         
+      </div>
+      <div class="col">
+          <label for='model'>Model</label>
+          <input type="text" class="form-control" id='model' placeholder="Model"
+          name="model"
+          required
+          pattern="^[A-Za-z\d]{3,16}$"
+          [(ngModel)]='car.model'
+          #model='ngModel'
+          >
+      </div>
+     
+    </div>
+    <div class="alert alert-danger" [hidden]='make.valid || make.pristine'>
+      Make must be of letters only
+    </div>
+    <div class="alert alert-danger" [hidden]='model.valid || model.pristine'>
+      Model must be of letters and digits only
+    </div>
+
+    <div class="row">
+        <div class="col">
+          <div class="form-group">
+          <label for='dis'>Displacement</label>
+          <select class='form-control' id='dis' [(ngModel)]='car.displacement' name='displacement'>
+            <option *ngFor='let dis of displacement' [value]='dis'  >{{dis}}</option>
+          </select>
+        </div>
+      </div>
+        <div class="col">
+            <div class="form-group">
+            <label for='fuel'>Fuel</label>
+            <select class='form-control' id='fuel' [(ngModel)]='car.fuel' name='fuel'>
+              <option *ngFor='let fl of fuel' [value]="fl"  >{{fl}}</option>
+            </select>
+            </div>
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="col">
+            <div class="form-group">
+              <label for='year'>Year of Production</label>
+              <select class='form-control' id='year'  [(ngModel)]='car.yearOfProduction' name='yearOfProduction'>
+                <option *ngFor='let year of yearOfProduction' [value]="year" >{{year}}</option>
+              </select>
+            </div>
+          </div>
+        <div class="col">
+            <label for='km'>Kilometers</label>
+            <input type="text" class="form-control" id='km' placeholder="kilometers"
+            name="kilometers"
+            required
+            min="0"
+            pattern="^\d+$"
+            [(ngModel)]='car.kilometers'
+            #kilometers='ngModel'
+            >
+            <div class="alert alert-danger" [hidden]='kilometers.valid || kilometers.pristine'>
+              Kilometers must be a number greater then 0
+            </div>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col">
+            <label for='desc'>Description</label>
+            <textarea rows="5" cols="50" name="description"
+            [(ngModel)]='car.description'
+            ></textarea>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <input type="submit" value="Create" [disabled]='f.form.invalid'/>        
+          </div>
+        </div>
+</form>
