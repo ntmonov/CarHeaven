@@ -33,5 +33,13 @@ export class CarsService {
     })
     return this.http.get<Array<CarModel>>(url, { headers })
   }
-  }
+
+  details(id): Observable<CarModel> {
+    let url = `${baseUrl}${module}/${appKey}/${collection}/${id}`
+    let headers = new HttpHeaders({
+      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
+      'Content-Type': 'application/json'
+    })
+    return this.http.get<CarModel>(url, { headers })  }
+}
 

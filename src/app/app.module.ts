@@ -22,7 +22,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     ToastrModule.forRoot()
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

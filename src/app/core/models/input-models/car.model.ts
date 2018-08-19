@@ -7,6 +7,7 @@ export class CarModel {
     public yearOfProduction: number,
     public kilometers: number,
     public price: number,
+    public image: string,
     public description?: string
   ) { }
 }

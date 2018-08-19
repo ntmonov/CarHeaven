@@ -15,7 +15,7 @@ export class CarCreateComponent implements OnInit {
 
   constructor( private carService: CarsService ) { 
     this.makeYearsArray()
-    this.car = new CarModel('', '', 0, this.fuel[0], this.yearOfProduction[0], 0 ,0)
+    this.car = new CarModel('', '', 0, this.fuel[0], this.yearOfProduction[0], 0 , 0,'')
   }
 
   ngOnInit() {

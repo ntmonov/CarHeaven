@@ -1,4 +1,4 @@
-<form #f='ngForm' (ngSubmit)='create(f)'>
+<form #f='ngForm' (ngSubmit)='create(f)' enctype="multipart/form-data">
     <div class="row">
       <div class="col">
         <label for='make'>Make</label>
@@ -79,6 +79,7 @@
             </div>
         </div>
       </div>
+
         <div class="row">
           <div class="col">
             <label for='desc'>Description</label>
@@ -96,7 +97,9 @@
              [(ngModel)]='car.price'
              #price='ngModel'
              >
-             
+             <input id="fileupload" name="image" type="file" [(ngModel)]='model.image'/>
+
+
           </div>
           <div class="alert alert-danger" [hidden]='price.valid || price.pristine'>
             Price must be a number greater than 0
