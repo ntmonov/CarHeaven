@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CarModel } from '../../../core/models/view-models/car.model';
+import { CarModel } from '../../../core/models/input-models/car.model';
+import { CarsService } from '../../../core/services/cars.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-car-create',
@@ -8,13 +10,12 @@ import { CarModel } from '../../../core/models/view-models/car.model';
 })
 export class CarCreateComponent implements OnInit {
   public car: CarModel
-  displacement: Array<number> = [1.2, 1.4, 1.6, 1.8, 2.0]
   fuel: Array<string> = ['gasoline', 'diesel', 'gas']
   yearOfProduction: Array<number> = []
 
-  constructor() { 
+  constructor( private carService: CarsService ) { 
     this.makeYearsArray()
-    this.car = new CarModel('', '', this.displacement[0], this.fuel[0], this.yearOfProduction[0], 0 )
+    this.car = new CarModel('', '', 0, this.fuel[0], this.yearOfProduction[0], 0 ,0)
   }
 
   ngOnInit() {
@@ -26,8 +27,12 @@ export class CarCreateComponent implements OnInit {
     }
   }
 
-  create() {
-    console.log(this.car)
+  create(form: NgForm) {
+    this.carService.create(form.value).subscribe(data => {
+      console.log(data)
+    }, err => {
+      console.log(err)
+    })
   }
 
 }

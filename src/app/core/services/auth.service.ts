@@ -50,7 +50,6 @@ export class AuthService {
       'Authorization': `Basic ${btoa(`${appKey}:${appSecret}`)}`,
       'Content-Type': 'application/json'
     })
-    console.log(JSON.stringify(user))
     return this.http.post<LoginModel>(url, JSON.stringify(user), { headers })
   }
 
