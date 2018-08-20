@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck } from '@angular/core';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router'
 import { ToastrService } from 'ngx-toastr'
@@ -8,7 +8,8 @@ import { ToastrService } from 'ngx-toastr'
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, DoCheck {
+  
   username: string
 
   constructor(
@@ -19,6 +20,10 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  ngDoCheck(): void {
+    this.username = sessionStorage.getItem('username')
   }
 
   logout() {

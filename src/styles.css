@@ -3,7 +3,9 @@
 @import "node_modules/ngx-toastr/toastr.css";
 
 
-.container {
+body {
   background-color: #CCC
 }
+
+
 

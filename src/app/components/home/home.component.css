@@ -4,5 +4,11 @@ a {
 
 .container {
   background-image: url('../../../assets/home.jpg');
-  min-height: 720px
+  min-height: 960px;
+  text-align: center
+}
+
+h1, p {
+  color: white;
+  margin: 40px
 }

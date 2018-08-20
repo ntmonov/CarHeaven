@@ -28,6 +28,9 @@ export class CarCreateComponent implements OnInit {
   }
 
   create(form: NgForm) {
+    if (!form.value['imageUrl']) {
+      form.value['imageUrl'] = '../../../../assets/noImg.png'
+    }
     this.carService.create(form.value).subscribe(data => {
       console.log(data)
     }, err => {

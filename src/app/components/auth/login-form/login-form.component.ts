@@ -17,7 +17,7 @@ export class LoginFormComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private toastr: ToastrService,
-    private router: Router
+    private router: Router,
   ) {
     this.model = new LoginModel('','')
    }
