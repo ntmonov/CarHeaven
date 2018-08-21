@@ -1,4 +1,4 @@
-<li>
+<!-- <li>
 <div class="card">
   <img [src]='car?.imageUrl' alt="Avatar" style="width:100%">
   <div class="container">
@@ -9,4 +9,17 @@
   <button routerLink='/cars/edit/{{car?.id}}'>Edit</button>
   <button routerLink='/cars/delete/{{car?.id}}'>Delete</button>
 </div>
-</li>
+</li> -->
+
+
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" [src]="car?.imageUrl" alt="Card image cap">
+  <div class="card-body">
+    <h3>{{car?.make}} {{car?.model}}</h3>
+    <p>Power -> {{car?.power}} hp</p>
+    <p>Price: {{car?.price}}</p>
+  </div>
+  <button routerLink='/cars/details/{{car?.id}}'>Details</button>
+  <button routerLink='/cars/edit/{{car?.id}}'>Edit</button>
+  <button routerLink='/cars/delete/{{car?.id}}'>Delete</button>
+</div>

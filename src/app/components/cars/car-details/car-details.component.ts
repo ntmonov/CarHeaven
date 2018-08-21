@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CarModel } from '../../../core/models/car.model';
 import { CarsService } from '../../../core/services/cars.service';
+import { RegisterModel } from '../../../core/models/register.model';
 
 @Component({
   selector: 'app-car-details',
@@ -12,6 +13,8 @@ export class CarDetailsComponent implements OnInit {
 
   public id: string
   car: CarModel
+  user: RegisterModel
+  isShown: boolean = false
 
   constructor(private route: ActivatedRoute,
               private carService: CarsService) { }
@@ -24,5 +27,10 @@ export class CarDetailsComponent implements OnInit {
        err => {
 
        })
+    
+  }
+
+  toggle() {
+    this.isShown = !this.isShown
   }
 }

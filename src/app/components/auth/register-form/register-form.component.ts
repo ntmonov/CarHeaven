@@ -18,7 +18,7 @@ export class RegisterFormComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService
-  ) { this.model = new RegisterModel('','','','',123,'') }
+  ) { this.model = new RegisterModel('','','','',0,'') }
 
   ngOnInit() {
   }

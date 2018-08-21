@@ -1,8 +1,37 @@
-<div>
-  <img src="../../../../assets/noImg.png">
-  <h3>{{car?.make}} - {{car?.model}}</h3>
-  <h3>Power {{car?.power}} Fuel {{car?.fuel}}</h3>
-  <h3>Year of production {{car?.yearOfProduction}} milage {{car?.kilometers}}</h3>
-  <p>Description: {{car?.description}}</p>
-  <h4>Price: {{car?.price}}</h4>
-</div>
+<div class="product">
+ 
+    <header>
+        <h1>{{car?.make}} {{car?.model}}</h1>
+    </header>
+   
+    <figure>
+      <img [src]="car?.imageUrl">
+    </figure>
+   
+    <section>
+   
+   
+    <details open>
+     <summary>Car Details</summary>
+        <ul>
+          <li>Fuel: {{car?.fuel}}</li>
+          <li>Power: {{car?.power}} hp</li>
+          <li>Production year: {{car?.yearOfProduction}}</li>
+          <li>Mileage: {{car?.kilometers}}</li>
+        </ul>
+        <p>Description: {{car?.description}}</p>
+
+        <h3>Price: {{car?.price}} lv</h3>
+    </details>
+   
+    </section>
+   
+  </div>
+
+  <button (click)='toggle()'>Conatcts</button>
+  <div *ngIf='isShown' class="contact">
+    <h3>Name: {{user.name}}</h3>
+    <h4>Email: {{user.email}}</h4>
+    <h4>Phone: {{user.phone}}</h4>
+    <p>Address: {{user.address}}</p>
+  </div>
