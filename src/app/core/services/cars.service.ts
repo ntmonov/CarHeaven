@@ -53,7 +53,7 @@ export class CarsService {
   }
 
   edit(car: CarModel) : Observable<CarModel> {
-    let url = `${baseUrl}${module}/${appKey}/${collection}/${car.id}`
+    let url = `${baseUrl}${module}/${appKey}/${collection}/${car['_id']}`
     let headers = new HttpHeaders({
       'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
       'Content-Type': 'application/json'
