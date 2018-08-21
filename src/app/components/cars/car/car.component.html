@@ -1,9 +1,12 @@
 <li>
-<div class="card" routerLink='/cars/details/{{car?._id}}'>
+<div class="card">
   <img [src]='car?.imageUrl' alt="Avatar" style="width:100%">
   <div class="container">
     <h4><b>{{car?.make}} {{car?.model}}</b></h4> 
     <p>Price: {{car?.price}}</p> 
   </div>
+  <button routerLink='/cars/details/{{car?.id}}'>Details</button>
+  <button routerLink='/cars/edit/{{car?.id}}'>Edit</button>
+  <button routerLink='/cars/delete/{{car?.id}}'>Delete</button>
 </div>
 </li>

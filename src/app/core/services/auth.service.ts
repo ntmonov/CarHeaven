@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { RegisterModel } from '../models/input-models/register.model';
+import { RegisterModel } from '../models/register.model';
 import { Observable } from 'rxjs';
-import { LoginModel } from '../models/input-models/login.model';
+import { LoginModel } from '../models/login.model';
 
 const appKey = 'kid_HkCipCMU7'
 const appSecret = 'da9a8ad659614f5f82b29cf0e66b8e19'

@@ -22,9 +22,10 @@
           <a class="nav-link" routerLink='/cars/create'>Create</a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="authService.checkIfLogged()">
         <a class="nav-link" routerLink='/cars/list'>Show Cars</a>
     </li>
+
     </ul>
   </div>
   <span *ngIf="authService.checkIfLogged()">Welcome {{username}}</span>

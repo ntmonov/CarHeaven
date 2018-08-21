@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RegisterModel } from '../../../core/models/input-models/register.model';
+import { RegisterModel } from '../../../core/models/register.model';
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 import { Router } from '@angular/router'

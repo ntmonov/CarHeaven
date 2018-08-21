@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CarModel } from '../../../core/models/input-models/car.model';
+import { CarModel } from '../../../core/models/car.model';
 import { CarsService } from '../../../core/services/cars.service';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-car-create',
@@ -13,9 +15,9 @@ export class CarCreateComponent implements OnInit {
   fuel: Array<string> = ['gasoline', 'diesel', 'gas']
   yearOfProduction: Array<number> = []
 
-  constructor( private carService: CarsService ) { 
+  constructor( private carService: CarsService, private toastr: ToastrService, private router: Router ) { 
     this.makeYearsArray()
-    this.car = new CarModel('', '', 0, this.fuel[0], this.yearOfProduction[0], 0 , 0,'')
+    this.car = new CarModel('','','',0,'',this.yearOfProduction[0],0,0,)
   }
 
   ngOnInit() {
@@ -32,7 +34,8 @@ export class CarCreateComponent implements OnInit {
       form.value['imageUrl'] = '../../../../assets/noImg.png'
     }
     this.carService.create(form.value).subscribe(data => {
-      console.log(data)
+      this.toastr.success('Car created', 'Success')
+      this.router.navigate(['cars/list'])
     }, err => {
       console.log(err)
     })

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginModel } from '../../../core/models/input-models/login.model';
+import { LoginModel } from '../../../core/models/login.model'
 import { NgForm } from '@angular/forms';
 import { AuthService } from '../../../core/services/auth.service';
 import { ToastrService } from 'ngx-toastr'

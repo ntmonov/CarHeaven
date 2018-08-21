@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { CarModel } from '../models/input-models/car.model';
 import { Observable } from 'rxjs';
+import { CarModel } from '../models/car.model';
 
 const appKey = 'kid_HkCipCMU7'
 const appSecret = 'da9a8ad659614f5f82b29cf0e66b8e19'
@@ -40,6 +40,34 @@ export class CarsService {
       'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
       'Content-Type': 'application/json'
     })
-    return this.http.get<CarModel>(url, { headers })  }
+    return this.http.get<CarModel>(url, { headers })  
+  }
+
+  getById(id) : Observable<CarModel> {
+    let url = `${baseUrl}${module}/${appKey}/${collection}/${id}`
+    let headers = new HttpHeaders({
+      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
+      'Content-Type': 'application/json'
+    })
+    return this.http.get<CarModel>(url, { headers })  
+  }
+
+  edit(car: CarModel) : Observable<CarModel> {
+    let url = `${baseUrl}${module}/${appKey}/${collection}/${car.id}`
+    let headers = new HttpHeaders({
+      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
+      'Content-Type': 'application/json'
+    })
+    return this.http.put<CarModel>(url, JSON.stringify(car), { headers } )
+  }
+
+  delete(id) {
+    let url = `${baseUrl}${module}/${appKey}/${collection}/${id}`
+    let headers = new HttpHeaders({
+      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
+      'Content-Type': 'application/json'
+    })
+    return this.http.delete(url, { headers })
+  }
 }
 

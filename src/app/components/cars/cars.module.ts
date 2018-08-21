@@ -7,6 +7,8 @@ import { FormsModule } from '@angular/forms';
 import { CarComponent } from './car/car.component';
 import { CarListComponent } from './car-list/car-list.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
+import { EditCarComponent } from './edit-car/edit-car.component';
+import { DeleteCarComponent } from './delete-car/delete-car.component';
 
 @NgModule({
   imports: [
@@ -14,6 +16,6 @@ import { CarDetailsComponent } from './car-details/car-details.component';
     RouterModule.forChild(carRoutes),
     FormsModule
   ],
-  declarations: [CarCreateComponent, CarComponent, CarListComponent, CarDetailsComponent]
+  declarations: [CarCreateComponent, CarComponent, CarListComponent, CarDetailsComponent, EditCarComponent, DeleteCarComponent]
 })
 export class CarsModule { }
