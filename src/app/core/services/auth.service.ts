@@ -36,30 +36,18 @@ export class AuthService {
 
   register(user: RegisterModel): Observable<RegisterModel> {
     let url = `${baseUrl}${userModule}/${appKey}`
-    let headers = new HttpHeaders({
-      'Authorization': `Basic ${btoa(`${appKey}:${appSecret}`)}`,
-      'Content-Type': 'application/json'
-    })
     delete user.repeatPass
-    return this.http.post<RegisterModel>(url,user,{ headers })
+    return this.http.post<RegisterModel>(url,user)
   }
 
   login(user: LoginModel): Observable<LoginModel> {
     let url = `${baseUrl}${userModule}/${appKey}/${loginEndPoint}`
-    let headers = new HttpHeaders({
-      'Authorization': `Basic ${btoa(`${appKey}:${appSecret}`)}`,
-      'Content-Type': 'application/json'
-    })
-    return this.http.post<LoginModel>(url, JSON.stringify(user), { headers })
+    return this.http.post<LoginModel>(url, JSON.stringify(user))
   }
 
   logout() {
     let url = `${baseUrl}${userModule}/${appKey}/${logoutEndPoint}`
-    let headers = new HttpHeaders({
-      'Authorization': `Kinvey ${sessionStorage.getItem('authtoken')}`,
-      'Content-Type': 'application/json'
-    })
-    return this.http.post(url, '', { headers })
+    return this.http.post(url, '')
   }
 
    

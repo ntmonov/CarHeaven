@@ -18,65 +18,37 @@ export class CarsService {
 
   create(car: CarModel): Observable<CarModel>{
     let url = `${baseUrl}${module}/${appKey}/${collection}`
-    let headers = new HttpHeaders({
-      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
-      'Content-Type': 'application/json'
-    })
-    return this.http.post<CarModel>(url, JSON.stringify(car), { headers })
+    return this.http.post<CarModel>(url, JSON.stringify(car))
   }
 
   list(): Observable<Array<CarModel>> {
     let url = `${baseUrl}${module}/${appKey}/${collection}`
-    let headers = new HttpHeaders({
-      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
-      'Content-Type': 'application/json'
-    })
-    return this.http.get<Array<CarModel>>(url, { headers })
+    return this.http.get<Array<CarModel>>(url)
   }
 
   details(id): Observable<CarModel> {
     let url = `${baseUrl}${module}/${appKey}/${collection}/${id}`
-    let headers = new HttpHeaders({
-      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
-      'Content-Type': 'application/json'
-    })
-    return this.http.get<CarModel>(url, { headers })  
+    return this.http.get<CarModel>(url)  
   }
 
   getById(id) : Observable<CarModel> {
     let url = `${baseUrl}${module}/${appKey}/${collection}/${id}`
-    let headers = new HttpHeaders({
-      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
-      'Content-Type': 'application/json'
-    })
-    return this.http.get<CarModel>(url, { headers })  
+    return this.http.get<CarModel>(url)  
   }
 
   edit(car: CarModel) : Observable<CarModel> {
     let url = `${baseUrl}${module}/${appKey}/${collection}/${car['_id']}`
-    let headers = new HttpHeaders({
-      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
-      'Content-Type': 'application/json'
-    })
-    return this.http.put<CarModel>(url, JSON.stringify(car), { headers } )
+    return this.http.put<CarModel>(url, JSON.stringify(car))
   }
 
   delete(id) {
     let url = `${baseUrl}${module}/${appKey}/${collection}/${id}`
-    let headers = new HttpHeaders({
-      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
-      'Content-Type': 'application/json'
-    })
-    return this.http.delete(url, { headers })
+    return this.http.delete(url)
   }
 
   getAuthor(carId: string): Observable<Object> {
     let url = `${baseUrl}${module}/${appKey}/${collection}/${carId}`
-    let headers = new HttpHeaders({
-      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
-      'Content-Type': 'application/json'
-    })
-    return this.http.get<Observable<Object>>(url, { headers })
+    return this.http.get<Observable<Object>>(url)
   }
 
 }

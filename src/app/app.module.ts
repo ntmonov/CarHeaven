@@ -3,13 +3,15 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { routes } from './app.routing'
 import { ToastrModule } from 'ngx-toastr'
- 
+import { HTTP_INTERCEPTORS } from '@angular/common/http'
+  
 import { AppComponent } from './app.component';
 import { SharedModule } from './components/shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { AuthModule } from './components/auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { GuardsModule } from './core/guards/guards.module';
+import { TokenInterceptor } from './core/interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,11 @@ import { GuardsModule } from './core/guards/guards.module';
     ToastrModule.forRoot(),
     GuardsModule
     ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
