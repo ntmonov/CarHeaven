@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { CarModel } from '../../../core/models/car.model';
 import { CarsService } from '../../../core/services/cars.service';
 import { RegisterModel } from '../../../core/models/register.model';
+import { ContactModel } from '../../../core/models/contacts.model';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-car-details',
@@ -13,21 +15,25 @@ export class CarDetailsComponent implements OnInit {
 
   public id: string
   car: CarModel
-  user: RegisterModel
+  user: ContactModel
   isShown: boolean = false
 
   constructor(private route: ActivatedRoute,
-              private carService: CarsService) { }
+              private carService: CarsService,
+              private authService: AuthService
+            ) { }
 
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id')
     this.carService.details(this.id).subscribe(car => {
       this.car = car
-    },
-       err => {
-
-       })
+    })
     
+    this.authService.getContact(sessionStorage.getItem('userId'))
+        .subscribe(data => {
+          this.user = data[0]
+          console.log(this.user)
+        })
   }
 
   toggle() {

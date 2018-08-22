@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { RegisterModel } from '../models/register.model';
 import { Observable } from 'rxjs';
 import { LoginModel } from '../models/login.model';
+import { ContactModel } from '../models/contacts.model';
 
 const appKey = 'kid_HkCipCMU7'
 const appSecret = 'da9a8ad659614f5f82b29cf0e66b8e19'
@@ -48,6 +49,11 @@ export class AuthService {
   logout() {
     let url = `${baseUrl}${userModule}/${appKey}/${logoutEndPoint}`
     return this.http.post(url, '')
+  }
+
+  getContact(userId : string): Observable<ContactModel> {
+    let url = `${baseUrl}${userModule}/${appKey}/?query={"_id":"${userId}"}`
+    return this.http.get<ContactModel>(url)
   }
 
    
