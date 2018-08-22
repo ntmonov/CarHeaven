@@ -9,6 +9,7 @@ import { SharedModule } from './components/shared/shared.module';
 import { HomeComponent } from './components/home/home.component';
 import { AuthModule } from './components/auth/auth.module';
 import { RouterModule } from '@angular/router';
+import { GuardsModule } from './core/guards/guards.module';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
     AuthModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    GuardsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

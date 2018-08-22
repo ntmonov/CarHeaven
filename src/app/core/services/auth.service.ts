@@ -30,7 +30,7 @@ export class AuthService {
     this.currentAuthToken = value
   }
 
-  checkIfLogged() {
+  isLoggedIn() {
     return this.currentAuthToken === sessionStorage.getItem('authtoken')
   }
 
@@ -62,5 +62,5 @@ export class AuthService {
     return this.http.post(url, '', { headers })
   }
 
-  
+   
 }

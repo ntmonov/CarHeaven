@@ -33,6 +33,7 @@ export class LoginFormComponent implements OnInit {
         this.authService.authtoken = data['_kmd']['authtoken']
         sessionStorage.setItem('authtoken', data['_kmd']['authtoken'])
         sessionStorage.setItem('username', data['username'])
+        sessionStorage.setItem('userId', data['_id'])
         this.router.navigate(['/home'])
       }, err => {
         this.toastr.error(err.error.description, 'error', {timeOut: 1000});

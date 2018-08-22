@@ -8,6 +8,6 @@ export const carRoutes = [
   { path: 'create', component: CarCreateComponent},
   { path: 'list', component: CarListComponent},
   { path: 'details/:id', component: CarDetailsComponent },
-  { path: 'edit/:id', component: EditCarComponent },
+  { path: 'edit/:id',  component: EditCarComponent },
   { path: 'delete/:id', component: DeleteCarComponent }
 ]

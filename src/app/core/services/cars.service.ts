@@ -69,5 +69,15 @@ export class CarsService {
     })
     return this.http.delete(url, { headers })
   }
+
+  getAuthor(carId: string): Observable<Object> {
+    let url = `${baseUrl}${module}/${appKey}/${collection}/${carId}`
+    let headers = new HttpHeaders({
+      'Authorization': 'Kinvey ' + sessionStorage.getItem('authtoken'),
+      'Content-Type': 'application/json'
+    })
+    return this.http.get<Observable<Object>>(url, { headers })
+  }
+
 }
 

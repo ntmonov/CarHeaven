@@ -31,6 +31,7 @@ export class RegisterFormComponent implements OnInit {
       this.authService.authtoken = data['_kmd']['authtoken']
       sessionStorage.setItem('authtoken', data['_kmd']['authtoken'])
       sessionStorage.setItem('username', data['username'])
+      sessionStorage.setItem('userId', data['_id'])
       this.router.navigate(['/home'])
     }, 
       err => {
