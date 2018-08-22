@@ -51,5 +51,9 @@ export class CarsService {
     return this.http.get<Observable<Object>>(url)
   }
 
+  getMyCars(userId: string): Observable<Array<CarModel>> {
+    let url = `${baseUrl}${module}/${appKey}/${collection}/?query={"_acl.creator":"${userId}"}`
+    return this.http.get<Array<CarModel>>(url)
+  }
 }
 

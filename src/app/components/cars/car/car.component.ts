@@ -20,7 +20,8 @@ export class CarComponent implements OnInit, DoCheck {
 
  
   ngOnInit() {
-    this.carService.getAuthor(this.car['id']).subscribe(data => {this.carAuthor = data['_acl']['creator']})
+    console.log(this.car)
+    this.carService.getAuthor(this.car['_id']).subscribe(data => {this.carAuthor = data['_acl']['creator']})
   }
 
 

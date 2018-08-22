@@ -9,6 +9,7 @@ import { CarListComponent } from './car-list/car-list.component';
 import { CarDetailsComponent } from './car-details/car-details.component';
 import { EditCarComponent } from './edit-car/edit-car.component';
 import { DeleteCarComponent } from './delete-car/delete-car.component';
+import { MyCarsComponent } from './my-cars/my-cars.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { DeleteCarComponent } from './delete-car/delete-car.component';
     RouterModule.forChild(carRoutes),
     FormsModule
   ],
-  declarations: [CarCreateComponent, CarComponent, CarListComponent, CarDetailsComponent, EditCarComponent, DeleteCarComponent]
+  declarations: [CarCreateComponent, CarComponent, CarListComponent, CarDetailsComponent, EditCarComponent, DeleteCarComponent, MyCarsComponent]
 })
 export class CarsModule { }

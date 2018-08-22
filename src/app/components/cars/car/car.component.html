@@ -19,7 +19,7 @@
     <p>Power -> {{car?.power}} hp</p>
     <p>Price: {{car?.price}}</p>
   </div>
-  <button routerLink='/cars/details/{{car?.id}}'>Details</button>
-  <button *ngIf='isAuthor' routerLink='/cars/edit/{{car?.id}}'>Edit</button>
-  <button *ngIf='isAuthor' routerLink='/cars/delete/{{car?.id}}'>Delete</button>
+  <button routerLink='/cars/details/{{car?._id}}'>Details</button>
+  <button *ngIf='isAuthor' routerLink='/cars/edit/{{car?._id}}'>Edit</button>
+  <button *ngIf='isAuthor' routerLink='/cars/delete/{{car?._id}}'>Delete</button>
 </div>
