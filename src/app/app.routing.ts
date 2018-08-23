@@ -12,5 +12,6 @@ export const routes : Routes = [
   { path: 'register', component: RegisterFormComponent },
   { path: 'login', component: LoginFormComponent },
   { path: 'cars', canActivate: [ AuthGuard ], loadChildren: '../app/components/cars/cars.module#CarsModule'},
+  { path: 'search', canActivate: [AuthGuard], loadChildren: '../app/components/search/search.module#SearchModule' },
   { path: '**', component: NotFoundPageComponent }
 ]

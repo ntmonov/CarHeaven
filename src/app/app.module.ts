@@ -12,6 +12,7 @@ import { AuthModule } from './components/auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { GuardsModule } from './core/guards/guards.module';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
+import { SearchModule } from './components/search/search.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { TokenInterceptor } from './core/interceptors/token.interceptor';
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    GuardsModule
+    GuardsModule,
     ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

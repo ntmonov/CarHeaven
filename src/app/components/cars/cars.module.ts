@@ -17,6 +17,7 @@ import { MyCarsComponent } from './my-cars/my-cars.component';
     RouterModule.forChild(carRoutes),
     FormsModule
   ],
-  declarations: [CarCreateComponent, CarComponent, CarListComponent, CarDetailsComponent, EditCarComponent, DeleteCarComponent, MyCarsComponent]
+  declarations: [CarCreateComponent, CarComponent, CarListComponent, CarDetailsComponent, EditCarComponent, DeleteCarComponent, MyCarsComponent],
+  exports: [CarComponent]
 })
 export class CarsModule { }
