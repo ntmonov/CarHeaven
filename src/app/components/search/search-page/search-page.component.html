@@ -1,0 +1,56 @@
+<div class="container">
+  <form #f='ngForm' (ngSubmit)='search()'>
+    
+    <div class="row">
+      <div class="col">
+        <label for="make">Make</label>
+        <input type="text" class="form-control" id='make' 
+               name='make' [(ngModel)]='carSearch.make'  
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="model">Model</label>
+        <input type="text" class="form-control" id='model' 
+               name='make' [(ngModel)]='carSearch.model'  
+        />
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <label for="minPower">Min Power</label>
+        <input type="text" class="form-control" id='minPower' 
+               name='minPower' [(ngModel)]='carSearch.minPower'  
+        />
+      </div>
+      <div class="col">
+        <label for="maxPower">Max Power</label>
+        <input type="text" class="form-control" id='maxPower' 
+               name='maxPower' [(ngModel)]='carSearch.maxPower'  
+        />
+      </div>
+    </div>
+
+    <input type="submit" value="Search" />
+  </form>
+</div>
+
+
+<form (ngSubmit)='sort(type.value)'>
+  <select #type>
+    <option value="priceA">Sort by Price ASC</option>
+    <option value="priceD">Sort by Price DESC</option>
+    <option value="dateA">Sort by date ASC</option>
+    <option value="dateD">Sort by date DESC</option>
+  </select>
+  <input type="submit" value="Sort" class="btn btn-info">
+  </form>
+<div *ngIf='searchSuccess'>
+  <ul>
+    <app-car *ngFor='let car of filteredCars' [car]='car'>
+    </app-car>  
+  </ul>
+</div>
