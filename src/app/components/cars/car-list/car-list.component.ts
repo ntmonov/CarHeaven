@@ -27,4 +27,21 @@ export class CarListComponent implements OnInit {
     })
   }
 
+  sort(type: string) {
+    switch (type) {
+      case 'priceA': {
+        this.cars.sort((a, b) => { return a.price - b.price })
+      } break
+      case 'priceD': {
+        this.cars.sort((a, b) => { return b.price - a.price })
+      } break
+      case 'dateA': {
+        this.cars.sort((a, b) => { return Number(new Date(a.created)) - Number(new Date(b.created)) })
+      } break
+      case 'dateD': {
+        this.cars.sort((a, b) => { return Number(new Date(b.created)) - Number(new Date(a.created)) })
+      } break
+    }
+  }
+
 }
