@@ -34,6 +34,7 @@ export class LoginFormComponent implements OnInit {
         sessionStorage.setItem('authtoken', data['_kmd']['authtoken'])
         sessionStorage.setItem('username', data['username'])
         sessionStorage.setItem('userId', data['_id'])
+        sessionStorage.setItem('isBlocked', data['isBlocked'].toString())
         this.router.navigate(['/home'])
       }, err => {
         this.toastr.error(err.error.description, 'error', {timeOut: 1000});

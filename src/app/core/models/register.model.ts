@@ -6,6 +6,7 @@ export class RegisterModel {
     public name: string,
     public phone: number,
     public email: string,
+    public isBlocked: boolean,
     public address?: string
   ) { }
 }

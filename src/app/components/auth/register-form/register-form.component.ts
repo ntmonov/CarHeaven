@@ -18,7 +18,7 @@ export class RegisterFormComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService
-  ) { this.model = new RegisterModel('','','','',0,'') }
+  ) { this.model = new RegisterModel('','','','',0,'',false) }
 
   ngOnInit() {
   }
@@ -32,6 +32,7 @@ export class RegisterFormComponent implements OnInit {
       sessionStorage.setItem('authtoken', data['_kmd']['authtoken'])
       sessionStorage.setItem('username', data['username'])
       sessionStorage.setItem('userId', data['_id'])
+      sessionStorage.setItem('isBlocked', data['isBlocked'].toString())
       this.router.navigate(['/home'])
     }, 
       err => {

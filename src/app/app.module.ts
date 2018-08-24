@@ -12,7 +12,7 @@ import { AuthModule } from './components/auth/auth.module';
 import { RouterModule } from '@angular/router';
 import { GuardsModule } from './core/guards/guards.module';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
-import { SearchModule } from './components/search/search.module';
+import { AdminModule } from '../app/components/admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -26,13 +26,14 @@ import { SearchModule } from './components/search/search.module';
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    GuardsModule,
-    ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
-  }],
+    GuardsModule
+      ],
+  providers: [//{
+    // provide: HTTP_INTERCEPTORS,
+    // useClass: TokenInterceptor,
+    // multi: true
+ // }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

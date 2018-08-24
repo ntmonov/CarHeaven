@@ -22,12 +22,12 @@ export class TokenInterceptor implements HttpInterceptor{
                 'Content-Type': 'application/json'
               }
             })
-      } else {           
-            req = req.clone({setHeaders: {
-                'Authorization': `Kinvey ${sessionStorage.getItem('authtoken')}`,
-                'Content-Type': 'application/json'
-            }}) 
-    }
+         } else  {           
+        req = req.clone({setHeaders: {
+            'Authorization': `Kinvey ${sessionStorage.getItem('authtoken')}`,
+            'Content-Type': 'application/json'
+        }}) 
+}
     return next.handle(req);
 }
 }
