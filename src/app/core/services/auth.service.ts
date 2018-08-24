@@ -5,6 +5,7 @@ import { RegisterModel } from '../models/register.model';
 import { Observable } from 'rxjs';
 import { LoginModel } from '../models/login.model';
 import { ContactModel } from '../models/contacts.model';
+import { EditModel } from '../models/edit.model';
 
 const appKey = 'kid_HkCipCMU7'
 const appSecret = 'da9a8ad659614f5f82b29cf0e66b8e19'
@@ -12,6 +13,7 @@ const baseUrl = 'https://baas.kinvey.com/'
 const loginEndPoint = 'login'
 const logoutEndPoint = '_logout'
 const userModule = 'user'
+
 
 @Injectable({
   providedIn: 'root'
@@ -104,5 +106,12 @@ export class AuthService {
     let headers = this.cteateAuthHeaders('Kinvey')
     let url = `https://baas.kinvey.com/${userModule}/${appKey}/${userId}`
     return this.http.get<RegisterModel>(url, { headers })
+  }
+
+  edit(user: EditModel): Observable<EditModel>{
+    let headers = this.cteateAuthHeaders('Kinvey')
+    let url = `https://baas.kinvey.com/${userModule}/${appKey}/${user['_id']}`
+    return this.http.put<EditModel>(url, user, { headers })
+
   }
 }

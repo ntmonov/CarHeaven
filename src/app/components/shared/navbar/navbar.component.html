@@ -38,6 +38,10 @@
   <a class="nav-link" routerLink='/admin/block'>Admin Panel</a>
 </li>
 
+<li class="nav-item" *ngIf="authService.isLoggedIn()">
+  <a class="nav-link" routerLink='/profile'>Profile Panel</a>
+</li>
+
     </ul>
   </div>
   <span *ngIf="authService.isLoggedIn()">Welcome {{username}}</span>

@@ -18,5 +18,6 @@ export const routes : Route[] = [
   { path: 'cars', canActivate: [ AuthGuard, BlockedGuard ], loadChildren: '../app/components/cars/cars.module#CarsModule'},
   { path: 'search', canActivate: [AuthGuard, BlockedGuard], loadChildren: '../app/components/search/search.module#SearchModule' },
   { path: 'admin', canActivate: [AuthGuard, AdminGuard], loadChildren: '../app/components/admin/admin.module#AdminModule' },
+  { path: 'profile', canActivate: [ AuthGuard ], loadChildren: '../app/components/profile/profile.module#ProfileModule' }, 
   { path: '**', component: NotFoundPageComponent }
 ]
