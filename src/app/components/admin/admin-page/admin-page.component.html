@@ -1,6 +1,8 @@
 <ul>
   <li *ngFor='let user of users'>
-    Block user => {{user.username}} <button (click)='getUser(user._id)'>Block/Unblock</button>
-    <span>Current status: {{user.isBlocked}}</span>
+    <div *ngIf='!user.isAdmin'>
+        Block user => {{user.username}} <button (click)='getUser(user._id)'>Block/Unblock</button>
+        <span>Current status: {{user.isBlocked}}</span>
+    </div>
   </li>
 </ul>

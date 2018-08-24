@@ -18,13 +18,14 @@ export class RegisterFormComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService
-  ) { this.model = new RegisterModel('','','','',0,'',false) }
+  ) { this.model = new RegisterModel('','','','',0,'',false,false) }
 
   ngOnInit() {
   }
 
   register(form: NgForm) {
     let user = form.value
+    user.isAdmin = false
     this.authService.register(user).
     subscribe(data => {
       this.toastr.success("Registration successful", 'success', {timeOut: 1000})
@@ -33,6 +34,7 @@ export class RegisterFormComponent implements OnInit {
       sessionStorage.setItem('username', data['username'])
       sessionStorage.setItem('userId', data['_id'])
       sessionStorage.setItem('isBlocked', data['isBlocked'].toString())
+      sessionStorage.setItem('isAdmin', data['isAdmin'].toString())
       this.router.navigate(['/home'])
     }, 
       err => {

@@ -35,6 +35,7 @@ export class LoginFormComponent implements OnInit {
         sessionStorage.setItem('username', data['username'])
         sessionStorage.setItem('userId', data['_id'])
         sessionStorage.setItem('isBlocked', data['isBlocked'].toString())
+        sessionStorage.setItem('isAdmin', data['isAdmin'].toString())
         this.router.navigate(['/home'])
       }, err => {
         this.toastr.error(err.error.description, 'error', {timeOut: 1000});

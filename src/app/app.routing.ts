@@ -7,6 +7,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 import { AdminModule } from '../app/components/admin/admin.module'
 import { BlockedComponent } from './components/shared/blocked/blocked.component';
 import { BlockedGuard } from './core/guards/blocked.guard';
+import { AdminGuard } from './core/guards/admin.guard';
 
 export const routes : Route[] = [
   { path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -16,6 +17,6 @@ export const routes : Route[] = [
   { path: 'blocked', component: BlockedComponent },
   { path: 'cars', canActivate: [ AuthGuard, BlockedGuard ], loadChildren: '../app/components/cars/cars.module#CarsModule'},
   { path: 'search', canActivate: [AuthGuard, BlockedGuard], loadChildren: '../app/components/search/search.module#SearchModule' },
-  { path: 'admin', canActivate: [AuthGuard], loadChildren: '../app/components/admin/admin.module#AdminModule' },
+  { path: 'admin', canActivate: [AuthGuard, AdminGuard], loadChildren: '../app/components/admin/admin.module#AdminModule' },
   { path: '**', component: NotFoundPageComponent }
 ]

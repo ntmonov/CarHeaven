@@ -53,6 +53,10 @@ export class AuthService {
     return sessionStorage.getItem('isBlocked') === 'true'
   }
 
+  isAdmin() : boolean {
+    return sessionStorage.getItem('isAdmin') === 'true'
+  }
+
   register(user: RegisterModel): Observable<RegisterModel> {
     let headers = this.cteateAuthHeaders('Basic')
     let url = `${baseUrl}${userModule}/${appKey}`
