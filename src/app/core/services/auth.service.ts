@@ -60,29 +60,29 @@ export class AuthService {
   }
 
   register(user: RegisterModel): Observable<RegisterModel> {
-    let headers = this.cteateAuthHeaders('Basic')
+    // let headers = this.cteateAuthHeaders('Basic')
     let url = `${baseUrl}${userModule}/${appKey}`
     delete user.repeatPass
     user.isBlocked = false
-    return this.http.post<RegisterModel>(url,user, { headers })
+    return this.http.post<RegisterModel>(url,user)
   }
 
   login(user: LoginModel): Observable<LoginModel> {
-    let headers = this.cteateAuthHeaders('Basic')
+    // let headers = this.cteateAuthHeaders('Basic')
     let url = `${baseUrl}${userModule}/${appKey}/${loginEndPoint}`
-    return this.http.post<LoginModel>(url, JSON.stringify(user), { headers })
+    return this.http.post<LoginModel>(url, JSON.stringify(user))
   }
 
   logout() {
-    let headers = this.cteateAuthHeaders('Kinvey')
+    // let headers = this.cteateAuthHeaders('Kinvey')
     let url = `${baseUrl}${userModule}/${appKey}/${logoutEndPoint}`
-    return this.http.post(url, '', { headers })
+    return this.http.post(url, '')
   }
 
   getContact(userId : string): Observable<ContactModel> {
-    let headers = this.cteateAuthHeaders('Kinvey')
+    // let headers = this.cteateAuthHeaders('Kinvey')
     let url = `${baseUrl}${userModule}/${appKey}/?query={"_id":"${userId}"}`
-    return this.http.get<ContactModel>(url, { headers })
+    return this.http.get<ContactModel>(url)
   }
 
   // getRole(userId : string) {
@@ -91,27 +91,27 @@ export class AuthService {
   // }
 
   getAllUsers() {
-    let headers = this.cteateAuthHeaders('Kinvey')
+    // let headers = this.cteateAuthHeaders('Kinvey')
     let url = `https://baas.kinvey.com/${userModule}/${appKey}`
-    return this.http.get(url, { headers })
+    return this.http.get(url)
   }
 
   lock(user: RegisterModel) {
-    let headers = this.cteateAuthHeaders('Kinvey')
+    // let headers = this.cteateAuthHeaders('Kinvey')
     let url = `https://baas.kinvey.com/${userModule}/${appKey}/${user['_id']}`
-    return this.http.put(url, JSON.stringify(user) , { headers })
+    return this.http.put(url, JSON.stringify(user) )
   }
   
   getUser(userId: string): Observable<RegisterModel>{
-    let headers = this.cteateAuthHeaders('Kinvey')
+    // let headers = this.cteateAuthHeaders('Kinvey')
     let url = `https://baas.kinvey.com/${userModule}/${appKey}/${userId}`
-    return this.http.get<RegisterModel>(url, { headers })
+    return this.http.get<RegisterModel>(url)
   }
 
   edit(user: EditModel): Observable<EditModel>{
-    let headers = this.cteateAuthHeaders('Kinvey')
+    // let headers = this.cteateAuthHeaders('Kinvey')
     let url = `https://baas.kinvey.com/${userModule}/${appKey}/${user['_id']}`
-    return this.http.put<EditModel>(url, user, { headers })
+    return this.http.put<EditModel>(url, user)
 
   }
 }
