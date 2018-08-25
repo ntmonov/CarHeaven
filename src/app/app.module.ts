@@ -30,12 +30,12 @@ import { CommentModule } from './components/comment/comment.module';
     GuardsModule,
     CommentModule
       ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: TokenInterceptor,
-    multi: true
- }
-],
+//   providers: [{
+//     provide: HTTP_INTERCEPTORS,
+//     useClass: TokenInterceptor,
+//     multi: true
+//  }
+// ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
