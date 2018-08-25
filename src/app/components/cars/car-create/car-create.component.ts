@@ -17,7 +17,7 @@ export class CarCreateComponent implements OnInit {
 
   constructor( private carService: CarsService, private toastr: ToastrService, private router: Router ) { 
     this.makeYearsArray()
-    this.car = new CarModel('','','',0,'',this.yearOfProduction[0],0,0,new Date(),'','')
+    this.car = new CarModel('','','','',0,'',this.yearOfProduction[0],0,0,new Date(),'','')
   }
 
   ngOnInit() {
@@ -34,6 +34,7 @@ export class CarCreateComponent implements OnInit {
       form.value['imageUrl'] = '../../../../assets/noImg.png'
     }
     form.value['created'] = new Date()
+    form.value['userId'] = sessionStorage.getItem('userId')
     this.carService.create(form.value).subscribe(data => {
       this.toastr.success('Car created', 'Success')
       this.router.navigate(['cars/list'])

@@ -23,7 +23,7 @@ export class EditCarComponent implements OnInit {
     private router: Router
   ) { 
     this.makeYearsArray()
-    this.car = new CarModel('', '','', 0, this.fuel[0], this.yearOfProduction[0], 0, 0, new Date(),'', '')
+    this.car = new CarModel('', '','','', 0, this.fuel[0], this.yearOfProduction[0], 0, 0, new Date(),'', '')
   }
 
   

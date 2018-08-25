@@ -27,12 +27,11 @@ export class CarDetailsComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id')
     this.carService.details(this.id).subscribe(car => {
       this.car = car
+      this.authService.getContact(this.car.userId)
+      .subscribe(data => {
+        this.user = data[0]
+      })
     })
-    
-    this.authService.getContact(sessionStorage.getItem('userId'))
-        .subscribe(data => {
-          this.user = data[0]
-        })
   }
 
   toggle() {
