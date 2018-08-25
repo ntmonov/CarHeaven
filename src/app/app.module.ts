@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { GuardsModule } from './core/guards/guards.module';
 import { TokenInterceptor } from './core/interceptors/token.interceptor';
 import { AdminModule } from '../app/components/admin/admin.module';
+import { CommentModule } from './components/comment/comment.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AdminModule } from '../app/components/admin/admin.module';
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    GuardsModule
+    GuardsModule,
+    CommentModule
       ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

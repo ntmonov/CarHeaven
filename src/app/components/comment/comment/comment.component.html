@@ -1,0 +1,23 @@
+<div class="container">
+  <form #f='ngForm' (ngSubmit)='post()'>
+    
+
+    <div class="row">
+      <div class="col">
+        <label for="model">Comment</label>
+        <textarea type="text" class="form-control" id='text' 
+               name='text' [(ngModel)]='model.text'  
+        ></textarea>
+      </div>
+    </div>
+
+    <input type="submit" value="Add Comment" />
+  </form>
+
+
+  <div *ngFor='let comment of comments'>
+    <h3>Author: {{comment?.author}}</h3>
+    <p>Comment: {{comment?.text}}</p>
+    <br>
+  </div>
+</div>

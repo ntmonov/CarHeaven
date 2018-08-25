@@ -32,7 +32,6 @@ export class CarDetailsComponent implements OnInit {
     this.authService.getContact(sessionStorage.getItem('userId'))
         .subscribe(data => {
           this.user = data[0]
-          console.log(this.user)
         })
   }
 
