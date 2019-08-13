@@ -6,7 +6,7 @@ import {
     HttpEvent,
     HttpInterceptor
   } from '@angular/common/http'
-  import { Observable } from "d:/CarHeaven/node_modules/rxjs/internal/Observable"
+  import { Observable } from "../../../../node_modules/rxjs/internal/Observable"
   
 
   const appKey = 'kid_HkCipCMU7'
